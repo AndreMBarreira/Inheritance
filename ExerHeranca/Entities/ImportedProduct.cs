@@ -17,10 +17,14 @@ namespace ExerHeranca.Entities
         {
             CustomsFee = customsFee;
         }
+        public double TotalPrice()
+        {
+            return Price + CustomsFee;
+        }
 
         public override string PriceTag()
         {
-            return Name + " " + Price.ToString("C") + ", (Custom fee " + CustomsFee.ToString("C") + ")";
+            return Name + " " + TotalPrice().ToString("C") + " (Custom fee " + CustomsFee.ToString("C") + ")";
         }
     }
 }

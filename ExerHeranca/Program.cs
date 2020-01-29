@@ -8,10 +8,6 @@ namespace ExerHeranca
     {
         static void Main(string[] args)
         {
-            Product product = new Product();
-            ImportedProduct imported = new ImportedProduct();
-            UsedProduct used = new UsedProduct();
-
             List<Product> products = new List<Product>();
             Console.Write("Enter the number of products: ");
             int n = int.Parse(Console.ReadLine());
@@ -24,22 +20,23 @@ namespace ExerHeranca
                 string name = Console.ReadLine();
                 Console.Write("Price: ");
                 double price = double.Parse(Console.ReadLine());
-                product = new Product(name, price);
-                if (typeProduct == 'i')
+                if (typeProduct == 'c') 
+                {
+                    products.Add(new Product(name, price));
+                }
+                else if (typeProduct == 'i')
                 {
                     Console.Write("Customs fee: ");
                     double fee = double.Parse(Console.ReadLine());
-                    imported = new ImportedProduct(name, price, fee);
-                    product = imported;
+                    products.Add(new ImportedProduct(name, price, fee));
                 }
-                else if (typeProduct == 'u')
+                else
                 {
                     Console.Write("Manufacture date (DD/MM/YYYY): ");
                     DateTime dateManufacture = DateTime.Parse(Console.ReadLine());
-                    used = new UsedProduct(name, price, dateManufacture);
-                    product = used;
+                    products.Add(new UsedProduct(name, price, dateManufacture));
                 }
-                products.Add(product);
+                
             }
             Console.WriteLine();
             foreach (Product prod in products)

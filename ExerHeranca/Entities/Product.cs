@@ -21,7 +21,7 @@ namespace ExerHeranca.Entities
 
         public virtual string PriceTag()
         {
-            return Name + " " + Price;
+            return Name + " " + Price.ToString("C");
         }
 
     }

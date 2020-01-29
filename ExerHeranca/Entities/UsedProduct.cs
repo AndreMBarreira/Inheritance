@@ -20,7 +20,7 @@ namespace ExerHeranca.Entities
 
         public override string PriceTag()
         {
-            return Name + " " + Price.ToString("C") + ",  (Manufacture date:  " + ManufactureDate.ToShortDateString()+ ")";
+            return Name + " " + Price.ToString("C") + " (Manufacture date:  " + ManufactureDate.ToShortDateString()+ ")";
         }
     }
 }
